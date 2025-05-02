@@ -18,6 +18,26 @@ export default defineConfig({
   build: {
     outDir: 'dist',
     sourcemap: true,
+    commonjsOptions: {
+      transformMixedEsModules: true,
+    },
+    rollupOptions: {
+      external: [
+        // Mark problematic dependencies as external if needed
+      ]
+    }
+  },
+  resolve: {
+    alias: {
+      // Add any path aliases if needed
+    },
+    dedupe: ['react', 'react-dom']
+  },
+  optimizeDeps: {
+    include: ['@metaplex-foundation/js', '@solana/web3.js'],
+    esbuildOptions: {
+      target: 'es2020',
+    }
   },
   server: {
     port: 5173,
