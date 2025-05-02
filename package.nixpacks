@@ -5,4 +5,6 @@ nixPkgs = ["nodejs", "npm"]
 cmds = ["npm install"]
 
 [phases.build]
-cmds = ["npm run build"] 
+cmds = ["npm run build"]
+
+{"providers": {"node": {"no-install": true}}} 
